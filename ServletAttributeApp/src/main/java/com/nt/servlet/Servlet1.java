@@ -14,7 +14,8 @@ import javax.servlet.http.HttpSession;
 public class Servlet1 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	//setting req attribute
+	System.out.println("Servlet1.doGet()");
+		//setting req attribute
 		req.setAttribute("attr1","val1");
 		RequestDispatcher rd=req.getRequestDispatcher("/s2url");
 		rd.forward(req, resp);
