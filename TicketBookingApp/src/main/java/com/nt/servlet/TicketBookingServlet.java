@@ -39,14 +39,14 @@ public class TicketBookingServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter pw=resp.getWriter();
-		resp.setContentType("text/html");
+		resp.setContentType("text/plain");
 		//Read the form data
 		String pname=req.getParameter("pname");
 		String addrs=req.getParameter("paddrs");
 		try(Statement st=con.createStatement()){
 			synchronized(con) {
 			pw.println("<h1 style='color:red;text-align:center'>No of booking available::"+(5-count)+"</h1>");
-			Thread.sleep(20000);
+			//Thread.sleep(20000);
 			
 			if(count<5) {
 			st.executeUpdate("INSERT INTO TKT_BOOKING VALUES(MY_SEQ.NEXTVAL,'"+pname+"','"+addrs+"')");
