@@ -9,10 +9,12 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebFilter("/*")
-public class BrowserCheckFilter extends HttpFilter {
-	@Override
-	public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.http.HttpServlet;
+@jakarta.servlet.annotation.WebFilter("/*")
+public class BrowserCheckFilter extends jakarta.servlet.http.HttpFilter {
+	public void doFilter(HttpServlet req, HttpServlet res, Filter chain)
 			throws IOException, ServletException {
 		System.out.println("BrowserCheckFilter.doFilter()");
 		PrintWriter pw=res.getWriter();
